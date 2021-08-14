@@ -1,7 +1,5 @@
 package br.com.bruno.campo_minado.modelo;
 
-import br.com.bruno.campo_minado.excecao.ExplosaoException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -35,7 +33,8 @@ public class Tabuleiro {
                     .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
                     .findFirst()
                     .ifPresent(c -> c.abrir());
-        } catch (ExplosaoException e) {
+        } catch (Exception e) {
+            // FIXME Ajustar a implementação do método abrir
             campos.forEach(c -> c.setAberto(true));
             throw e;
 

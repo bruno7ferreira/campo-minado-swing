@@ -1,7 +1,5 @@
 package br.com.bruno.campo_minado.modelo;
 
-import br.com.bruno.campo_minado.excecao.ExplosaoException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +55,7 @@ public class Campo {
             this.aberto = true;
 
             if (minado) { //abrir um campo minado, fim de jogo
-                throw new ExplosaoException();
+                // TODO Implementar nova versão
             }
 
             if (vizinhancaSegura()) {
