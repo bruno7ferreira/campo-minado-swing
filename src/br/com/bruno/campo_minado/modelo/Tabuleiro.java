@@ -22,7 +22,6 @@ public class Tabuleiro {
         gerarCampo();
         associarVizinhos();
         sortearMinas();
-
     }
 
     //métodos
@@ -36,9 +35,7 @@ public class Tabuleiro {
             // FIXME Ajustar a implementação do método abrir
             campos.forEach(c -> c.setAberto(true));
             throw e;
-
         }
-
     }
 
     public void alterarMarcacao(int linha, int coluna) {
