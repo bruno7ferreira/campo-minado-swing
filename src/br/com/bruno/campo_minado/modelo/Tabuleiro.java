@@ -45,7 +45,6 @@ public class Tabuleiro {
                 .ifPresent(c -> c.alterarMarcacao());
     }
 
-
     private void gerarCampo() {
         for (int contadorLinha = 0; contadorLinha < linhas; contadorLinha++) {
             for (int contadorColuna = 0; contadorColuna < colunas; contadorColuna++) {
