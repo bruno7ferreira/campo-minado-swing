@@ -1,7 +1,10 @@
 package br.com.bruno.campo_minado.modelo;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.BiConsumer;
 
 public class Campo {
 
@@ -16,6 +19,9 @@ public class Campo {
     //campos vizinhos
     private List<Campo> vizinhos = new ArrayList<>();
 
+    private Set<CampoObservador> observadores = new LinkedHashSet<>(); //Usando o set para evitar duplicação
+    private List<BiConsumer<Campo, CampoEvento>> observadores2 = new ArrayList<>();
+    // BiConsumer = não retorna nada e tem dois tipos como parametro
 
 
     //construtor
@@ -25,6 +31,11 @@ public class Campo {
     }
 
     //métodos
+
+    public void registrarObservador(CampoObservador observador) {
+        observadores.add(observador);
+    }
+
     boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = this.linha != vizinho.linha;
         boolean colunaDiferente = this.coluna != vizinho.coluna;
