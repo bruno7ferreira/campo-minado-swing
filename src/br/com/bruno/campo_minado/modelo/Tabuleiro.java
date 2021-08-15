@@ -13,7 +13,7 @@ public class Tabuleiro implements CampoObservador {
     private int minas;
 
     private final List<Campo> campos = new ArrayList<>();
-    private final List<Consumer<Boolean>> observadores = new ArrayList<>();
+    private final List<Consumer<ResultadoEvento>> observadores = new ArrayList<>();
     //consumer = recebe um tipo e não retorna nada
 
 
@@ -30,26 +30,20 @@ public class Tabuleiro implements CampoObservador {
 
     //métodos
 
-    public void registrarObservador(Consumer<Boolean> observador) {
+    public void registrarObservador(Consumer<ResultadoEvento> observador) {
         observadores.add(observador);
     }
 
     private void notificarObservadores(boolean resultado) {
         observadores.stream()
-                .forEach(o -> o.accept(resultado));
+                .forEach(o -> o.accept(new ResultadoEvento(resultado)));
     }
 
     public void abrir(int linha, int coluna) {
-        try {
-            campos.parallelStream()
-                    .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
-                    .findFirst()
-                    .ifPresent(c -> c.abrir());
-        } catch (Exception e) {
-            // FIXME Ajustar a implementação do método abrir
-            campos.forEach(c -> c.setAberto(true));
-            throw e;
-        }
+        campos.parallelStream()
+                .filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+                .findFirst()
+                .ifPresent(c -> c.abrir());
     }
 
     public void alterarMarcacao(int linha, int coluna) {
@@ -103,11 +97,16 @@ public class Tabuleiro implements CampoObservador {
     @Override
     public void eventoOcorreu(Campo c, CampoEvento e) {
         if (e == CampoEvento.EXPLODIR) {
-            System.out.println("Perdeu... :(");
+            mostrarMinas();
             notificarObservadores(false);
         } else if (objetivoAlcancado()) {
             notificarObservadores(true);
-            System.out.println("Você ganhou! :)");
         }
+    }
+
+    private void mostrarMinas() {
+        campos.stream()
+                .filter(c -> c.isMinado()) //filtrando os campos minados
+                .forEach(c -> c.setAberto(true));
     }
 }
