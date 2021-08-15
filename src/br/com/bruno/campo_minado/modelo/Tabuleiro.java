@@ -2,6 +2,7 @@ package br.com.bruno.campo_minado.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Tabuleiro implements CampoObservador {
@@ -12,6 +13,9 @@ public class Tabuleiro implements CampoObservador {
     private int minas;
 
     private final List<Campo> campos = new ArrayList<>();
+    private final List<Consumer<Boolean>> observadores = new ArrayList<>();
+    //consumer = recebe um tipo e não retorna nada
+
 
     //Construtor
     public Tabuleiro(int linhas, int colunas, int minas) {
@@ -25,6 +29,11 @@ public class Tabuleiro implements CampoObservador {
     }
 
     //métodos
+
+    public void registrarObservador(Consumer<Boolean> observador) {
+        observadores.add(observador);
+    }
+
     public void abrir(int linha, int coluna) {
         try {
             campos.parallelStream()
