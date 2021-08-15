@@ -10,6 +10,8 @@ public class TelaPrincipal extends JFrame {
 
     public TelaPrincipal() {
         Tabuleiro tabuleiro = new Tabuleiro(16, 30, 50);
+        PainelTabuleiro painelTabuleiro = new PainelTabuleiro(tabuleiro);
+
 
 
         setTitle("Campo Minado");//titulo do jogo
