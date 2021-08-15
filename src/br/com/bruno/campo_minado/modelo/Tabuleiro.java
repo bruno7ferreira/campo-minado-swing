@@ -8,9 +8,9 @@ import java.util.function.Predicate;
 public class Tabuleiro implements CampoObservador {
 
     //atributos 
-    private int linhas;
-    private int colunas;
-    private int minas;
+    private final int linhas;
+    private final int colunas;
+    private final int minas;
 
     private final List<Campo> campos = new ArrayList<>();
     private final List<Consumer<ResultadoEvento>> observadores = new ArrayList<>();
@@ -29,7 +29,6 @@ public class Tabuleiro implements CampoObservador {
     }
 
     //métodos
-
     public void registrarObservador(Consumer<ResultadoEvento> observador) {
         observadores.add(observador);
     }
@@ -109,4 +108,14 @@ public class Tabuleiro implements CampoObservador {
                 .filter(c -> c.isMinado()) //filtrando os campos minados
                 .forEach(c -> c.setAberto(true));
     }
+
+    //get and set
+    public int getLinhas() {
+        return linhas;
+    }
+
+    public int getColunas() {
+        return colunas;
+    }
+
 }
