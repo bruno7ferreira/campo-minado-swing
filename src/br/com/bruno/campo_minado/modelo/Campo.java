@@ -36,6 +36,11 @@ public class Campo {
         observadores.add(observador);
     }
 
+    private void notificarObservadores(CampoEvento evento) {
+        observadores.stream()
+                .forEach(observador -> observador.eventoOcorreu(this, evento));
+    }
+
     boolean adicionarVizinho(Campo vizinho) {
         boolean linhaDiferente = this.linha != vizinho.linha;
         boolean colunaDiferente = this.coluna != vizinho.coluna;
@@ -59,6 +64,12 @@ public class Campo {
     void alterarMarcacao() {
         if (!aberto) {
             this.marcado = !marcado;
+
+            if (marcado) {
+                notificarObservadores(CampoEvento.MARCAR);
+            } else {
+                notificarObservadores(CampoEvento.DESMARCAR);
+            }
         }
     }
 
