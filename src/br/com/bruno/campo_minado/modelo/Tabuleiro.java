@@ -34,6 +34,11 @@ public class Tabuleiro implements CampoObservador {
         observadores.add(observador);
     }
 
+    private void notificarObservadores(boolean resultado) {
+        observadores.stream()
+                .forEach(o -> o.accept(resultado));
+    }
+
     public void abrir(int linha, int coluna) {
         try {
             campos.parallelStream()
@@ -98,9 +103,11 @@ public class Tabuleiro implements CampoObservador {
     @Override
     public void eventoOcorreu(Campo c, CampoEvento e) {
         if (e == CampoEvento.EXPLODIR) {
-            System.out.println("Perdeu...");
+            System.out.println("Perdeu... :(");
+            notificarObservadores(false);
         } else if (objetivoAlcancado()) {
-            System.out.println("Você ganhou!");
+            notificarObservadores(true);
+            System.out.println("Você ganhou! :)");
         }
     }
 }
