@@ -115,20 +115,15 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
         }
     }
 
-    @Override
     public void mouseClicked(MouseEvent e) {
     } // mouse clicado
 
-    @Override
     public void mouseReleased(MouseEvent e) {
     } // mouse lançado
 
-    @Override
     public void mouseEntered(MouseEvent e) {
     } // inscrito
 
-    @Override
     public void mouseExited(MouseEvent e) {
     } // mouse sair
-
 }
