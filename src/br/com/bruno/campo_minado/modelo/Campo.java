@@ -83,7 +83,6 @@ public class Campo {
 
             setAberto(true);
 
-
             if (vizinhancaSegura()) {
                 vizinhos.forEach(v -> abrir()); // abre o campo, caso a vizinhaça esteja segura
             }

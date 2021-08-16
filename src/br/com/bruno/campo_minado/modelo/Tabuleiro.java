@@ -29,7 +29,6 @@ public class Tabuleiro implements CampoObservador {
     }
 
     //métodos
-
     public void paraCadaCampo(Consumer<Campo> funcao) {
         campos.forEach(funcao);
     }
@@ -108,9 +107,10 @@ public class Tabuleiro implements CampoObservador {
         }
     }
 
-    private void mostrarMinas() {
+    private void mostrarMinas() { //método verificado BRF!
         campos.stream()
                 .filter(c -> c.isMinado()) //filtrando os campos minados
+                .filter(c -> !c.isMarcado())
                 .forEach(c -> c.setAberto(true));
     }
 
