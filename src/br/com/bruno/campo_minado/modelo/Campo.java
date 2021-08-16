@@ -119,7 +119,7 @@ public class Campo {
         aberto = false;
         minado = false;
         marcado = false;
-    }
+    } //BRF
 
 
     //get and set
