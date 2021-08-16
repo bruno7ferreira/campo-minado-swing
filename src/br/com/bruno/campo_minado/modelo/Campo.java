@@ -93,7 +93,7 @@ public class Campo {
         }
     }
 
-    boolean vizinhancaSegura() {
+    public boolean vizinhancaSegura() {
         return vizinhos.stream()
                 .noneMatch(v -> v.minado); // verifica se algum vizinho está minado
     }
