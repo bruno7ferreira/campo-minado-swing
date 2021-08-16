@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public class BotaoCampo extends JButton implements CampoObservador {
 
     private final Color BG_PADRAO = new Color(184, 184, 184);
@@ -21,8 +21,9 @@ public class BotaoCampo extends JButton implements CampoObservador {
     public BotaoCampo(Campo campo) {
 
         this.campo = campo;
+        setBackground(BG_PADRAO); // definindo a cor do plano de fundo
         setBorder(BorderFactory.createBevelBorder(0)); // definido a cor da borda do botão
-        //setBackground(); // TODO falta definir a cor do plano de fundo
+
         campo.registrarObservador(this);
     }
 
