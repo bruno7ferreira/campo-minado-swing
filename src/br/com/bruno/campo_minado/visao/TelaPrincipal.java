@@ -8,7 +8,7 @@ import javax.swing.*;
 public class TelaPrincipal extends JFrame {
 
     public TelaPrincipal() {
-        Tabuleiro tabuleiro = new Tabuleiro(16, 30, 50);
+        Tabuleiro tabuleiro = new Tabuleiro(16, 30, 80);
         add(new PainelTabuleiro(tabuleiro));//instanciando um painel tabuleiro e adicionando o mesmo
 
         setTitle("Campo Minado");//titulo do jogo

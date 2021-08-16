@@ -63,7 +63,7 @@ public class Campo {
 
     public void alterarMarcacao() {
         if (!aberto) {
-            this.marcado = !marcado;
+            marcado = !marcado;
 
             if (marcado) {
                 notificarObservadores(CampoEvento.MARCAR);
@@ -113,7 +113,7 @@ public class Campo {
         return (int) vizinhos.stream()
                 .filter(v -> v.minado)
                 .count();
-    }
+    }//brf
 
     void reiniciar() { // Reinicia o jogo
         aberto = false;
