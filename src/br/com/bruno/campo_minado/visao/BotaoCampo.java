@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-
 @SuppressWarnings("all")
 public class BotaoCampo extends JButton implements CampoObservador, MouseListener {
 
@@ -27,7 +26,7 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
         this.campo = campo;
         setBackground(BG_PADRAO); // definindo a cor do plano de fundo
         setOpaque(true);
-        setBorder(BorderFactory.createBevelBorder(0)); // definido a cor da borda do botão
+        setBorder(BorderFactory.createBevelBorder(0)); // definido efeito da borda
 
         addMouseListener(this); // evento do mouse registrado
         campo.registrarObservador(this);
@@ -131,6 +130,5 @@ public class BotaoCampo extends JButton implements CampoObservador, MouseListene
     @Override
     public void mouseExited(MouseEvent e) {
     } // mouse sair
-
 
 }
