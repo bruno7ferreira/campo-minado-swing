@@ -6,11 +6,14 @@ import br.com.bruno.campo_minado.modelo.CampoObservador;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 @SuppressWarnings("all")
-public class BotaoCampo extends JButton implements CampoObservador {
+public class BotaoCampo extends JButton implements CampoObservador, MouseListener {
 
+    //atributos
     private final Color BG_PADRAO = new Color(184, 184, 184);
     private final Color BG_MARCAR = new Color(8, 179, 247);
     private final Color BG_EXPLODIR = new Color(189, 66, 68);
@@ -18,15 +21,18 @@ public class BotaoCampo extends JButton implements CampoObservador {
 
     private Campo campo;
 
+    //Construtor
     public BotaoCampo(Campo campo) {
 
         this.campo = campo;
         setBackground(BG_PADRAO); // definindo a cor do plano de fundo
         setBorder(BorderFactory.createBevelBorder(0)); // definido a cor da borda do botão
 
+        addMouseListener(this); // evento do mouse registrado
         campo.registrarObservador(this);
     }
 
+    //métodos
     @Override
     public void eventoOcorreu(Campo campo, CampoEvento evento) {
         switch (evento) {
@@ -56,4 +62,32 @@ public class BotaoCampo extends JButton implements CampoObservador {
     private void aplicarEstiloAbrir() {
 
     }
+
+    //Interface MouseListener = eventos do mouse
+    @Override
+    public void mousePressed(MouseEvent e) { //mouse pressionado
+        if (e.getButton() == 1) {
+            campo.abrir();
+        } else {
+            campo.alterarMarcacao();
+        }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    } // mouse clicado
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    } // mouse lançado
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    } // inscrito
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    } // mouse sair
+
+
 }

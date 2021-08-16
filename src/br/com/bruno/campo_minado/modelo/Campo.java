@@ -61,7 +61,7 @@ public class Campo {
         }
     }
 
-    void alterarMarcacao() {
+    public void alterarMarcacao() {
         if (!aberto) {
             this.marcado = !marcado;
 
@@ -73,7 +73,7 @@ public class Campo {
         }
     }
 
-    boolean abrir() {
+    public boolean abrir() {
         if (!aberto && !marcado) { // abrindo um campo do jogo
 
             if (minado) { //abrir um campo minado, fim de jogo
@@ -127,7 +127,7 @@ public class Campo {
     void setAberto(boolean aberto) {
         this.aberto = aberto;
 
-        if (aberto){
+        if (aberto) {
             notificarObservadores(CampoEvento.ABRIR);
         }
 
