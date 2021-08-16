@@ -42,15 +42,15 @@ public class Campo {
     }
 
     boolean adicionarVizinho(Campo vizinho) {
-        boolean linhaDiferente = this.linha != vizinho.linha;
-        boolean colunaDiferente = this.coluna != vizinho.coluna;
+        boolean linhaDiferente = linha != vizinho.linha;
+        boolean colunaDiferente = coluna != vizinho.coluna;
         boolean diagonal = linhaDiferente && colunaDiferente;
 
-        int deltaLinha = Math.abs(this.linha - vizinho.linha); // retorna o número absoluto
-        int deltaColuna = Math.abs(this.coluna - vizinho.coluna); // retorna o número absoluto
+        int deltaLinha = Math.abs(linha - vizinho.linha); // retorna o número absoluto
+        int deltaColuna = Math.abs(coluna - vizinho.coluna); // retorna o número absoluto
         int deltaGeral = deltaColuna + deltaLinha;
 
-        if (deltaColuna == 1 && !diagonal) {
+        if (deltaGeral == 1 && !diagonal) { //corrigido, estava deltaColuna ao invés de detalGeral
             vizinhos.add(vizinho);
             return true;
         } else if (deltaGeral == 2 & diagonal) {
