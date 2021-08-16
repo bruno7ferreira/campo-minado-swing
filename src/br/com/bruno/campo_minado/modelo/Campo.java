@@ -130,8 +130,6 @@ public class Campo {
         if (aberto) {
             notificarObservadores(CampoEvento.ABRIR);
         }
-
-
     }
 
     public boolean isMarcado() {

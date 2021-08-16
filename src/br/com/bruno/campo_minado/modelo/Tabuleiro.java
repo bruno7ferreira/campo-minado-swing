@@ -32,7 +32,6 @@ public class Tabuleiro implements CampoObservador {
 
     public void paraCadaCampo(Consumer<Campo> funcao) {
         campos.forEach(funcao);
-
     }
 
     public void registrarObservador(Consumer<ResultadoEvento> observador) {
@@ -100,8 +99,8 @@ public class Tabuleiro implements CampoObservador {
     }
 
     @Override
-    public void eventoOcorreu(Campo c, CampoEvento e) {
-        if (e == CampoEvento.EXPLODIR) {
+    public void eventoOcorreu(Campo campo, CampoEvento evento) {
+        if (evento == CampoEvento.EXPLODIR) {
             mostrarMinas();
             notificarObservadores(false);
         } else if (objetivoAlcancado()) {
