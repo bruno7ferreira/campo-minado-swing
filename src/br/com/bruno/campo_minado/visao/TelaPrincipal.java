@@ -3,7 +3,6 @@ package br.com.bruno.campo_minado.visao;
 import br.com.bruno.campo_minado.modelo.Tabuleiro;
 
 import javax.swing.*;
-import java.awt.*;
 
 @SuppressWarnings("ALL")
 public class TelaPrincipal extends JFrame {
@@ -23,8 +22,5 @@ public class TelaPrincipal extends JFrame {
 
         new TelaPrincipal();
 
-
     }
-
-
 }

@@ -5,8 +5,7 @@ import br.com.bruno.campo_minado.modelo.Tabuleiro;
 import javax.swing.*;
 import java.awt.*;
 
-
-@SuppressWarnings("SpellCheckingInspection")
+@SuppressWarnings("all")
 public class PainelTabuleiro extends JPanel {
 
     public PainelTabuleiro(Tabuleiro tabuleiro) {
@@ -25,7 +24,5 @@ public class PainelTabuleiro extends JPanel {
                 tabuleiro.reiniciar();
             });
         });
-
-
     }
 }
