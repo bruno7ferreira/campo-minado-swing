@@ -74,14 +74,16 @@ public class Campo {
     }
 
     public boolean abrir() {
+
         if (!aberto && !marcado) { // abrindo um campo do jogo
+            aberto = true;// TODO método adicionado na revisão
 
             if (minado) { //abrir um campo minado, fim de jogo
                 notificarObservadores(CampoEvento.EXPLODIR);
                 return true;
             }
 
-            setAberto(true);
+            setAberto(true); //TODO verificar se tem esse método no final das aulas, caso não tenha, excluir!!
 
             if (vizinhancaSegura()) {
                 vizinhos.forEach(v -> abrir()); // abre o campo, caso a vizinhaça esteja segura
@@ -99,7 +101,7 @@ public class Campo {
 
     void minar() {
         if (!minado) {
-            this.minado = true; //deixa o campo minado
+            minado = true; //deixa o campo minado
         }
     }
 
@@ -113,7 +115,7 @@ public class Campo {
         return (int) vizinhos.stream()
                 .filter(v -> v.minado)
                 .count();
-    }//brf
+    }
 
     void reiniciar() { // Reinicia o jogo
         aberto = false;
