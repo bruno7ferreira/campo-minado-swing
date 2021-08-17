@@ -1,11 +1,10 @@
 package br.com.bruno.campo_minado.modelo;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.function.BiConsumer;
 
+//@author Bruno Rogério
+@SuppressWarnings("all")
 public class Campo {
 
     //atributos

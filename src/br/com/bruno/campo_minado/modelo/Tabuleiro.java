@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+//@author Bruno Rogério
+@SuppressWarnings("all")
 public class Tabuleiro implements CampoObservador {
 
     //atributos 

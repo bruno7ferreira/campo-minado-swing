@@ -1,8 +1,9 @@
 package br.com.bruno.campo_minado.modelo;
 
+//@author Bruno Rogério
 @FunctionalInterface
 public interface CampoObservador {
 
-    public void eventoOcorreu(Campo c, CampoEvento e);
+    void eventoOcorreu(Campo c, CampoEvento e);
 
 }

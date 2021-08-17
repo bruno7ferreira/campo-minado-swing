@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+//@author Bruno Rogério
 @SuppressWarnings("all")
 public class BotaoCampo extends JButton implements CampoObservador, MouseListener {
 

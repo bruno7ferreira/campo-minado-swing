@@ -5,6 +5,7 @@ import br.com.bruno.campo_minado.modelo.Tabuleiro;
 import javax.swing.*;
 import java.awt.*;
 
+//@author Bruno Rogério
 @SuppressWarnings("all")
 public class PainelTabuleiro extends JPanel {
 

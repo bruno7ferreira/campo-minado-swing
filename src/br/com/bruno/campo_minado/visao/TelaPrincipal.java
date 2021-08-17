@@ -4,6 +4,7 @@ import br.com.bruno.campo_minado.modelo.Tabuleiro;
 
 import javax.swing.*;
 
+//@author Bruno Rogério
 @SuppressWarnings("ALL")
 public class TelaPrincipal extends JFrame {
 
