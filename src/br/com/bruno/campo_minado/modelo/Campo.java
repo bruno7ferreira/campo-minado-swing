@@ -19,8 +19,8 @@ public class Campo {
     //campos vizinhos
     private List<Campo> vizinhos = new ArrayList<>();
 
-    private Set<CampoObservador> observadores = new LinkedHashSet<>(); //Usando o set para evitar duplicação
-    private List<BiConsumer<Campo, CampoEvento>> observadores2 = new ArrayList<>();
+    private List<CampoObservador> observadores = new ArrayList<>(); //Usando o set para evitar duplicação
+    //private List<BiConsumer<Campo, CampoEvento>> observadores2 = new ArrayList<>();
     // BiConsumer = não retorna nada e tem dois tipos como parametro
 
 
@@ -76,14 +76,12 @@ public class Campo {
     public boolean abrir() {
 
         if (!aberto && !marcado) { // abrindo um campo do jogo
-            aberto = true;// TODO método adicionado na revisão
-
             if (minado) { //abrir um campo minado, fim de jogo
                 notificarObservadores(CampoEvento.EXPLODIR);
                 return true;
             }
 
-            setAberto(true); //TODO verificar se tem esse método no final das aulas, caso não tenha, excluir!!
+            setAberto(true);
 
             if (vizinhancaSegura()) {
                 vizinhos.forEach(v -> abrir()); // abre o campo, caso a vizinhaça esteja segura
